@@ -13,19 +13,19 @@ export default function Clock() {
       data-testid="clock"
     >
       <div
-        className={clockDigitStyling}
+        className={`${clockDigitStyling}`}
         data-testid="hours"
       >
         {hours}:
       </div>
       <div
-        className={clockDigitStyling}
+        className={`${clockDigitStyling}`}
         data-testid="minutes"
       >
         {minutes}
       </div>
       <div
-        className={clockDigitStyling}
+        className={`${clockDigitStyling}`}
         data-testid="am_or_pm"
       >
         &nbsp;{am_or_pm}
