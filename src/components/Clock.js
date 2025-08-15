@@ -1,17 +1,25 @@
 import { useState, useEffect } from 'react';
 
 export default function Clock() {
-  let date = new Date();
+  // Colon flashing logic
+  const [showColon, setShowColon] = useState(true);
+  const [date, setDate] = useState(new Date());
+
+  // Update the Time in useEffect()
+  useEffect(() => {
+    const timer = setInterval(() => setDate(new Date()), 1000); // Update date.
+    return () => clearInterval(timer);
+  }, []);
+
+  // Interval update, updates: hours, minutes, and am or pm
   let hours = (date.getHours() % 12 || 12).toString().padStart(2, '0');
   let minutes = date.getMinutes().toString().padStart(2, '0');
   let am_or_pm = date.getHours() >= 12 ? 'PM' : 'AM';
 
+  // Convenient, consistent styling
   const clockDigitStyling = "text-red-500 inline-block md:text-[4.75rem] lg:text-[7.25rem] text-[3.75rem] font-bold italic";
 
-  // Colon flashing logic
-  const [showColon, setShowColon] = useState(true);
-
-  // useEffect to cycle/flash the Colon
+  // Cycle and Flash the Colon with useEffect()
   useEffect(() => {
     let visibleTimeout;
     const interval = setInterval(() => {
