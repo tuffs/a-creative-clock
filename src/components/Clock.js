@@ -25,12 +25,12 @@ export default function Clock() {
     const interval = setInterval(() => {
       setShowColon(false);
       visibleTimeout = setTimeout(() => setShowColon(true), 500)
-    }, 10000); // Every 3s
+    }, 10000); // 3s Delay on Interval
 
     return () => {
       clearInterval(interval);
       clearTimeout(visibleTimeout);
-    };
+    }; // Clear Interval and Timeout to repeat
   }, []);
 
   return (
