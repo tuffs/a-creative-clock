@@ -13,10 +13,12 @@ describe("Clock Test Suite", () => {
   it("renders hours, minutes, and am_or_pm data-testid's", () => {
     render(<Clock />);
     const hours = screen.getByTestId("hours");
+    const colon_seperator = screen.getByTestId("colon_seperator");
     const minutes = screen.getByTestId("minutes");
     const am_or_pm = screen.getByTestId("am_or_pm");
 
     expect(hours).toBeInTheDocument();
+    expect(colon_seperator).toBeInTheDocument();
     expect(minutes).toBeInTheDocument();
     expect(am_or_pm).toBeInTheDocument();
   });

@@ -28,7 +28,13 @@ export default function Clock() {
           className={`${clockDigitStyling}`}
           data-testid="hours"
         >
-          {hours}:
+          {hours}
+        </div>
+        <div
+          className={`${clockDigitStyling}`}
+          data-testid="colon_seperator"
+        >
+          &nbsp;:&nbsp;
         </div>
         <div
           className={`${clockDigitStyling}`}
