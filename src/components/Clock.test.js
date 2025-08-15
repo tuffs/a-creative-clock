@@ -1,11 +1,24 @@
-import { screen, render } from '@testing-library/react';
-import Clock from './Clock';
-import '@testing-library/jest-dom';
+import { screen, render } from "@testing-library/react";
+import Clock from "./Clock";
+import "@testing-library/jest-dom";
 
 describe("Clock Test Suite", () => {
-  it('renders a clock', () => {
+
+  it("renders a clock", () => {
     render(<Clock />);
     const clock = screen.getByTestId("clock");
     expect(clock).toBeInTheDocument();
   });
+
+  it("renders hours, minutes, and am_or_pm data-testid's", () => {
+    render(<Clock />);
+    const hours = screen.getByTestId("hours");
+    const minutes = screen.getByTestId("minutes");
+    const am_or_pm = screen.getByTestId("am_or_pm");
+
+    expect(hours).toBeInTheDocument();
+    expect(minutes).toBeInTheDocument();
+    expect(am_or_pm).toBeInTheDocument();
+  });
+
 });
