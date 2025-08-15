@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 export default function Clock() {
   let date = new Date();
   let hours = (date.getHours() % 12 || 12).toString().padStart(2, '0');
@@ -5,6 +7,23 @@ export default function Clock() {
   let am_or_pm = date.getHours() >= 12 ? 'PM' : 'AM';
 
   const clockDigitStyling = "text-red-500 inline-block md:text-[4.75rem] lg:text-[7.25rem] text-[3.75rem] font-bold italic";
+
+  // Colon flashing logic
+  const [showColon, setShowColon] = useState(true);
+
+  // useEffect to cycle/flash the Colon
+  useEffect(() => {
+    let visibleTimeout;
+    const interval = setInterval(() => {
+      setShowColon(false);
+      visibleTimeout = setTimeout(() => setShowColon(true), 500)
+    }, 10000); // Every 3s
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(visibleTimeout);
+    };
+  }, []);
 
   return (
     <div
@@ -33,6 +52,7 @@ export default function Clock() {
         <div
           className={`${clockDigitStyling}`}
           data-testid="colon_seperator"
+          style={{ visibility: showColon ? 'visible' : 'hidden' }}
         >
           &nbsp;:&nbsp;
         </div>
