@@ -1,11 +1,12 @@
-import './App.css';
 import Clock from './components/Clock';
 
 function App() {
   return (
-    <div className="App" data-testid="App">
-      <Clock
-      />
+    <div
+      className="font-orbitron max-w-screen-lg mx-auto bg-black m-5 text-center"
+      data-testid="App"
+    >
+      <Clock />
     </div>
   );
 }
