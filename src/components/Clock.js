@@ -25,7 +25,7 @@ export default function Clock() {
     const interval = setInterval(() => {
       setShowColon(false);
       visibleTimeout = setTimeout(() => setShowColon(true), 500);
-    }, 10000); // 3s Delay on Interval
+    }, 4525); // 3s Delay on Interval
 
     return () => {
       clearInterval(interval);
