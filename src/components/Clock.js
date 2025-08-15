@@ -17,7 +17,7 @@ export default function Clock() {
   let am_or_pm = date.getHours() >= 12 ? 'PM' : 'AM';
 
   // Convenient, consistent styling
-  const clockDigitStyling = "text-red-500 inline-block md:text-[4.75rem] lg:text-[7.25rem] text-[3.75rem] font-bold italic";
+  const clockDigitStyling = "text-red-500 inline-block md:text-[7.25rem] text-[3.455rem] font-bold italic";
 
   // Cycle and Flash the Colon with useEffect()
   useEffect(() => {
@@ -35,46 +35,39 @@ export default function Clock() {
 
   return (
     <div
-      className="clock"
+      className="clock mx-auto mt-24"
       id="clock"
       data-testid="clock"
     >
-
-      <div
-        id="current_time_is__statement"
-        className="text-[13px] md:text-[20px] lg:text-[27px]"
-        style={{
-          fontFamily: 'sans-serif',
-        }}
-      >
-        The current time is ...
-      </div>
-
-      <div id="clockTimeDisplay" data-testid="clock_time_display">
-        <div
-          className={`${clockDigitStyling}`}
-          data-testid="hours"
-        >
-          {hours}
-        </div>
-        <div
-          className={`${clockDigitStyling}`}
-          data-testid="colon_seperator"
-          style={{ visibility: showColon ? 'visible' : 'hidden' }}
-        >
-          &nbsp;:&nbsp;
-        </div>
-        <div
-          className={`${clockDigitStyling}`}
-          data-testid="minutes"
-        >
-          {minutes}
-        </div>
-        <div
-          className={`${clockDigitStyling}`}
-          data-testid="am_or_pm"
-        >
-          &nbsp;{am_or_pm}
+      <div className="clockCase bg-purple-950 border-2 border-gray-700 rounded-md p-6 mt-8 w-75 md:w-[800px] lg:w-[900px] m-3" data-testid="clockCase">
+        <div className="backgroundLED bg-gray-950 border border-gray-500/50 rounded-md pt-8 pb-8 px-3" data-testid="backgroundLED">
+          <div id="clockTimeDisplay" data-testid="clock_time_display">
+            <div
+              className={`${clockDigitStyling}`}
+              data-testid="hours"
+            >
+              {hours}
+            </div>
+            <div
+              className={`${clockDigitStyling}`}
+              data-testid="colon_seperator"
+              style={{ visibility: showColon ? 'visible' : 'hidden' }}
+            >
+              &nbsp;:&nbsp;
+            </div>
+            <div
+              className={`${clockDigitStyling}`}
+              data-testid="minutes"
+            >
+              {minutes}
+            </div>
+            <div
+              className={`${clockDigitStyling}`}
+              data-testid="am_or_pm"
+            >
+              &nbsp;{am_or_pm}
+            </div>
+          </div>
         </div>
       </div>
     </div>

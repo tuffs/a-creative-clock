@@ -6,9 +6,7 @@ describe("Clock Test Suite", () => {
 
   it("renders a clock", () => {
     render(<Clock />);
-
     const clock = screen.getByTestId("clock");
-
     expect(clock).toBeInTheDocument();
   });
 
@@ -24,6 +22,12 @@ describe("Clock Test Suite", () => {
     expect(colon_seperator).toBeInTheDocument();
     expect(minutes).toBeInTheDocument();
     expect(am_or_pm).toBeInTheDocument();
+  });
+
+  it('displays a background LED panel for our LEDs', () => {
+    render(<Clock />);
+    const backgroundLED = screen.getByTestId('backgroundLED');
+    expect(backgroundLED).toBeInTheDocument();
   });
 
 });
